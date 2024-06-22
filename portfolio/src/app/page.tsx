@@ -122,9 +122,9 @@ export default function Home() {
       </section>
 
       {/* Experience */}
-      <section className="px-8 flex flex-col space-y-4 py-16 w-full text-gray-900 bg-white">
+      <section className="px-10 flex flex-col space-y-4 py-16 w-full text-gray-900 bg-white">
         <div className="max-w-4xl mx-auto w-full">
-          <h2 className="text-2xl font-semibold uppercase">
+          <h2 className="text-2xl font-semibold uppercase mb-2">
             Experience
           </h2>
 
@@ -135,18 +135,18 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section className="text-gray-900 px-8 flex flex-col space-y-4 pb-16 w-full bg-white">
+      <section className="text-gray-900 px-10 flex flex-col space-y-4 pb-16 w-full bg-white">
         <div className="max-w-4xl mx-auto w-full">
-          <h2 className="font-semibold text-2xl uppercase">
+          <h2 className="font-semibold text-2xl uppercase mb-2">
             Contact
           </h2>
 
-          <p className="text-lg">
+          <p className="text-lg mb-2">
             Feel free to reach out if you&apos;d like to discuss my work or potential opportunities.
           </p>
 
-          <p>
-            <span className="text-lg font-semibold">Email: </span>christopherjoon@gmail.com
+          <p className="text-lg">
+            <span className="font-semibold">Email: </span>christopherjoon@gmail.com
           </p>
 
           {/* Socials */}
