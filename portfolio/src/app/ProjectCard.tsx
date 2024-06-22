@@ -4,7 +4,9 @@ import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaExpand } from "react-icons/fa";
-
+import { IoMdArrowDropright as RightArrow } from "react-icons/io";
+import { IoMdArrowDropleft as LeftArrow } from "react-icons/io";
+import { IoClose as CloseIcon } from "react-icons/io5";
 
 type ProjectCardProps = {
     project: Project;
@@ -12,6 +14,7 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     const [isImageExpanded, setIsImageExpanded] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const openLink = (url?: string) => {
         if (url)
@@ -21,6 +24,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     const toggleImageModal = () => {
         setIsImageExpanded(!isImageExpanded);
     };
+
+    const nextImage = () => {
+        if (currentImageIndex < project.images.length - 1)
+            setCurrentImageIndex(currentImageIndex + 1);
+    }
+
+    const prevImage = () => {
+        if (currentImageIndex > 0)
+            setCurrentImageIndex(currentImageIndex - 1);
+    }
 
     return (
         <div
@@ -36,7 +49,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 className="relative group bg-black rounded-xl hover:cursor-pointer mb-6"
             >
                 <Image
-                    src={project.image}
+                    src={project.mainImage}
                     alt={`Preview image for ${project.title}`}
                     className="rounded-xl w-96 h-auto group-hover:opacity-50"
                 />
@@ -49,24 +62,63 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {/* Expanded image */}
             {isImageExpanded && (
                 <div
-                    onClick={toggleImageModal}
-                    className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+                    // onClick={toggleImageModal}
+                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
                 >
                     <div
                         onClick={(e) => e.stopPropagation()}
-                        className="relative"
+                        className="relative flex space-x-4"
                     >
-                        <Image
-                            src={project.image}
-                            alt={`Preview image for ${project.title}`}
-                            className="rounded-xl w-[400px] sm:w-[550px] md:w-[700px] lg:w-[800px] h-auto"
-                        />
-                        <button
-                            onClick={toggleImageModal}
-                            className="absolute -top-4 -right-4 text-gray-200 text-2xl bg-gray-600 px-3 py-1 rounded-full hover:bg-gray-700 transition-colors"
-                        >
-                            &times;
-                        </button>
+                        {/* Left arrow */}
+                        {currentImageIndex > 0 &&
+                            <button
+                                onClick={prevImage}
+                                className="text-gray-200 opacity-80 hover:opacity-100 transition-opacity"
+                            >
+                                <LeftArrow size={50} />
+                            </button>
+                        }
+
+                        {/* Image */}
+                        <div>
+                            {/* Close button */}
+                            <button
+                                onClick={toggleImageModal}
+                                className="bg-gray-700 text-gray-300 flex items-center space-x-2 px-5 py-2 rounded-full mx-auto mb-4 hover:bg-gray-800 transition-colors"
+                            >
+                                <CloseIcon size={20} />
+                                <span>Close</span>
+                            </button>
+
+                            <Image
+                                src={project.images[currentImageIndex].image}
+                                alt={`Preview image for ${project.title}`}
+                                className="rounded-xl h-auto w-auto max-h-[80vh]"
+                            />
+
+                            {/* Close button */}
+                            {/* <button
+                                onClick={toggleImageModal}
+                                className="absolute -top-5 right-12 text-gray-200 text-2xl bg-gray-600 px-3 py-1 rounded-full hover:bg-gray-700 transition-colors"
+                            >
+                                &times;
+                            </button> */}
+
+                            {/* Image description */}
+                            <p className="text-gray-200 text-center mt-3">
+                                {project.images[currentImageIndex].description}
+                            </p>
+                        </div>
+
+                        {/* Right arrow */}
+                        {currentImageIndex < project.images.length - 1 &&
+                            <button
+                                onClick={nextImage}
+                                className="text-gray-200 opacity-80 hover:opacity-100 transition-opacity"
+                            >
+                                <RightArrow size={50} />
+                            </button>
+                        }
                     </div>
                 </div>
             )}

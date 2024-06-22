@@ -1,11 +1,31 @@
 import { StaticImageData } from 'next/image';
-import giveMeATaskImg from '../media/give_me_a_task.png';
+
+import giveMeATaskMainImg from '../media/give_me_a_task.png';
+import giveMeATaskImg1 from '../media/giveMeATask/1-daily-tasks.png';
+import giveMeATaskImg2 from '../media/giveMeATask/2-daily-tasks.png';
+import giveMeATaskImg3 from '../media/giveMeATask/3-daily-tasks.png';
+import giveMeATaskImg4 from '../media/giveMeATask/4-daily-tasks.png';
+import giveMeATaskImg5 from '../media/giveMeATask/5-timer.png';
+import giveMeATaskImg6 from '../media/giveMeATask/6-my-tasks.png';
+import giveMeATaskImg7 from '../media/giveMeATask/7-my-tasks.png';
+import giveMeATaskImg8 from '../media/giveMeATask/8-my-tasks.png';
+import giveMeATaskImg9 from '../media/giveMeATask/9-random-task.png';
+import giveMeATaskImg10 from '../media/giveMeATask/10-high-priority.png';
+import giveMeATaskImg11 from '../media/giveMeATask/11-my-tasks.png';
+import giveMeATaskImg12 from '../media/giveMeATask/12-mobile.png';
+
 import worksheetGeneratorImg from '../media/worksheet_generator_1.jpg';
 import candyCrushImg from '../media/candy_crush.png';
 
+export type ImageAndDescription = {
+    image: StaticImageData;
+    description: string;
+}
+
 export type Project = {
     title: string;
-    image: StaticImageData;
+    mainImage: StaticImageData;
+    images: ImageAndDescription[];
     technologies: string[];
     description: string[];
     features: string[];
@@ -15,7 +35,57 @@ export type Project = {
 
 export const giveMeATask: Project = {
     title: "Give me a task",
-    image: giveMeATaskImg,
+    mainImage: giveMeATaskMainImg,
+    images: [
+        {
+            image: giveMeATaskImg1,
+            description: "Daily tasks tab (list hidden)"
+        },
+        {
+            image: giveMeATaskImg2,
+            description: "Daily tasks tab (list visible)"
+        },
+        {
+            image: giveMeATaskImg3,
+            description: "Editing a daily task"
+        },
+        {
+            image: giveMeATaskImg4,
+            description: "Adding a new daily task"
+        },
+        {
+            image: giveMeATaskImg5,
+            description: "Setting the timer"
+        },
+        {
+            image: giveMeATaskImg6,
+            description: "My tasks tab (list hidden)"
+        },
+        {
+            image: giveMeATaskImg7,
+            description: "My tasks tab (list visible)"
+        },
+        {
+            image: giveMeATaskImg8,
+            description: "My tasks tab (task description visible)"
+        },
+        {
+            image: giveMeATaskImg9,
+            description: "Getting a random task"
+        },
+        {
+            image: giveMeATaskImg10,
+            description: "Getting a high-priority task"
+        },
+        {
+            image: giveMeATaskImg11,
+            description: "Adding a new task"
+        },
+        {
+            image: giveMeATaskImg12,
+            description: "Responsive mobile design"
+        }
+    ],
     technologies: [
         "TypeScript & React (frontend)",
         "AWS Amplify (backend)",
@@ -42,7 +112,8 @@ export const giveMeATask: Project = {
 
 export const worksheetGenerator: Project = {
     title: "Worksheet generator",
-    image: worksheetGeneratorImg,
+    mainImage: worksheetGeneratorImg,
+    images: [],
     technologies: [
         "C#",
         "LINQ",
@@ -64,7 +135,8 @@ export const worksheetGenerator: Project = {
 
 export const candyCrush: Project = {
     title: "Candy Crush",
-    image: candyCrushImg,
+    mainImage: candyCrushImg,
+    images: [],
     technologies: [
         "JavaScript",
         "Mocha & Chai"
