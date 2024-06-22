@@ -1,41 +1,36 @@
-// "use client";
-
 import { Project } from "@/data/projects";
 import Image, { StaticImageData } from "next/image";
-import { useEffect, useState } from "react";
+import { FaGithub } from "react-icons/fa";
 
 type ProjectCardProps = {
-    img: StaticImageData;
     project: Project;
 }
 
-export default function ProjectCard({ img, project }: ProjectCardProps) {
-    // const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-    // useEffect(() => {
-    //     const image = new window.Image();
-    //     image.src = img.src;
-    //     image.onload = () => {
-    //         setDimensions({ width: img.width, height: img.height }
-    //         );
-    //     };
-    // }, []);
-
+export default function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="flex flex-col space-y-6 text-gray-900 items-center bg-white px-12 py-8 rounded-2xl mb-12">
+        <div className="flex flex-col space-y-6 text-gray-900 items-center bg-white px-12 pt-8 pb-12 rounded-2xl max-w-2xl">
             {/* Title */}
-            <h3 className="text-2xl font-semibold">
+            <h3 className="text-xl font-semibold uppercase">
                 {project.title}
             </h3>
 
             {/* Image */}
-            <div className="w-72">
-                <Image
-                    src={img}
-                    alt="Give me a task image"
-                    className="rounded-xl"
-                />
-            </div>
+            <Image
+                src={project.image}
+                alt={`Preview image for ${project.title}`}
+                className="rounded-xl w-96 h-auto"
+            />
+
+            {/* GitHub button */}
+            <button
+                onClick={() => { window.open(project.gitHubUrl), "_blank", "noopener,noreferrer" }}
+                className="bg-gray-800 text-gray-200 px-5 py-2 rounded-full hover:bg-black transition-colors flex items-center space-x-2"
+            >
+                <FaGithub size={20} />
+                <span>GitHub Repo</span>
+            </button>
+
+
             {/* Description */}
             <p className="text-lg">
                 {project.description}

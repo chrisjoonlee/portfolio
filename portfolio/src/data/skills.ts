@@ -6,6 +6,26 @@ export const programmingLanguages = [
     "Bash"
 ];
 
+export const frontEnd = [
+    "React",
+    "Next.js",
+    "Flask",
+    "Tailwind"
+];
+
+export const backEnd = [
+    "Node.js",
+    "Express.js",
+    ".NET",
+    "Restful APIs"
+];
+
+export const cloudServices = [
+    "AWS Amplify",
+    "AWS Cognito",
+    "AWS DynamoDB"
+];
+
 export const queryingLanguages = [
     "SQL",
     "LINQ",
@@ -17,27 +37,14 @@ export const markupLanguages = [
     "XML & OOXML"
 ];
 
-export const cloudServices = [
-    "AWS Amplify",
-    "AWS Cognito",
-    "AWS DynamoDB"
-];
-
 export const tools = [
     "Git & GitHub",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Express.js",
-    ".NET",
-    "RESTful APIs",
-    "Tailwind",
     "Mocha & Chai"
 ];
 
 export const languages = [
-    "🇺🇸 English (native)",
-    "🇲🇽 Spanish (fluent)",
-    "🇰🇷 Korean (conversational)",
-    "🇧🇷 Portuguese (conversational)"
+    "English",
+    "Spanish",
+    "Korean",
+    "Portuguese"
 ];

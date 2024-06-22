@@ -1,5 +1,8 @@
+"use client";
+
+import React, { useRef } from 'react';
 import Image from "next/image";
-import List from "./List";
+import SkillCard from "./SkillCard";
 import ProjectCard from './ProjectCard';
 import { ImLinkedin } from "react-icons/im";
 import { FaGithub } from "react-icons/fa";
@@ -7,9 +10,11 @@ import { FaGithub } from "react-icons/fa";
 
 import {
   programmingLanguages,
+  frontEnd,
+  backEnd,
+  cloudServices,
   queryingLanguages,
   markupLanguages,
-  cloudServices,
   tools,
   languages
 } from '../data/skills';
@@ -19,114 +24,144 @@ import {
   worksheetGenerator
 } from '../data/projects';
 
-import proPic from '../media/pro_pic.png';
+import proPic from '../media/pro_pic2.jpg';
 import giveMeATaskImg from '../media/give_me_a_task.png';
+import worksheetGeneratorImg from '../media/worksheet_generator_1.jpg';
 
 export default function Home() {
+  const projectsRef = useRef<HTMLDivElement>(null);
+
+  const handleScrollToProjects = () => {
+    if (projectsRef.current)
+      projectsRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <main className="flex flex-col bg-white h-screen py-12 space-y-8 items-center">
+    <main className="flex flex-col h-screen items-center">
 
-      {/* Header */}
-      <section className="mb-4 space-y-2 text-center">
-        <h1 className="text-myPurple text-4xl font-semibold uppercase leading-30">
-          Christopher Joon Lee
-        </h1>
-        <h2 className="text-myPink text-2xl uppercase font-semibold">
-          Software Dev Portfolio
-        </h2>
-      </section>
+      <section className="bg-gray-700 w-full py-12">
 
-      {/* Introduction */}
-      <section className="flex space-y-8 items-center text-center max-w-4xl px-8
+        {/* Title */}
+        <section className="mb-6 space-y-2 text-center px-8">
+          <h1 className="text-gray-200 text-4xl font-semibold uppercase leading-30">
+            Christopher Joon Lee
+          </h1>
+          <h2 className="text-gray-200 text-2xl uppercase font-semibold">
+            Software Dev Portfolio
+          </h2>
+        </section>
+
+        {/* Introduction */}
+        <section className="flex space-y-8 items-center max-w-4xl px-8 mx-auto
           flex-col sm:space-y-0 sm:flex-row sm:space-x-8 sm:text-left">
-        <Image
-          src={proPic}
-          alt="Profile picture"
-          width={200}
-          className="rounded-full"
-        />
-        <p className="text-gray-900 text-xl leading-8">
-          Hi! I’m Chris, a software developer with a background in JavaScript, React, Python, C#, and AWS. I code because I love to create, and I’m eager to bring my expertise to your business.
-        </p>
+          <Image
+            src={proPic}
+            alt="Profile picture"
+            width={200}
+            className="rounded-full"
+          />
+
+          <div>
+            <p className="text-gray-200 text-xl leading-8 text-center sm:text-left">
+              Hi! I’m Chris, a full-stack software developer from the U.S. with a background in JavaScript, React, Python, C#, and AWS. I speak English, Spanish, Korean, and Portuguese.
+            </p>
+            <button
+              onClick={handleScrollToProjects}
+              className="bg-gray-900 px-4 py-2 rounded-full text-gray-200 mt-4 hover:bg-black transition-colors"
+            >
+              See my projects
+            </button>
+          </div>
+        </section>
+
       </section>
 
       {/* Skills */}
-      <section className="flex flex-col space-y-4 mx-8">
-        <h2 className="text-myBlue uppercase font-semibold text-2xl text-center">
+      <section className="flex flex-col px-8 py-16 bg-gray-300 w-full">
+        <h2 className="text-gray-900 uppercase font-semibold text-3xl text-center mb-8">
           Skills
         </h2>
 
-        <div className="grid grid-cols-1 gap-10 border-4 border-myBlue rounded-2xl p-8
-            sm:grid-cols-2 lg:grid-cols-3 mx-auto">
-          <List title="Programming Languages" items={programmingLanguages} />
-          <List title="Querying Languages" items={queryingLanguages} />
-          <List title="Markup Languages" items={markupLanguages} />
-          <List title="Cloud Services" items={cloudServices} />
-          <List title="Tools & Technologies" items={tools} />
-          <List title="Languages" items={languages} bullets={false} />
+        <div className="grid grid-cols-1 gap-10 rounded-2xl
+            md:grid-cols-2 xl:grid-cols-3 mx-auto">
+          <SkillCard title="Programming Languages" items={programmingLanguages} />
+          <SkillCard title="Front-End" items={frontEnd} />
+          <SkillCard title="Back-End" items={backEnd} />
+          <SkillCard title="Cloud Services" items={cloudServices} />
+          <SkillCard title="Querying Languages" items={queryingLanguages} />
+          <SkillCard title="Markup Languages" items={markupLanguages} />
+          <SkillCard title="Tools & Technologies" items={tools} />
+          <SkillCard title="Languages" items={languages} />
         </div>
 
       </section>
 
       {/* Projects */}
-      <section className="bg-red-200 px-8">
-        <h2 className="text-myPink uppercase font-semibold text-2xl text-center my-8">
+      <section
+        ref={projectsRef}
+        className="bg-gray-600 px-8 py-16 w-full"
+      >
+        <h2 className="text-gray-200 uppercase font-semibold text-3xl text-center mb-8">
           Projects
         </h2>
 
-        <div className="grid grid-cols-1 gap-12
-            lg:grid-cols-2">
+        <div className="flex flex-col justify-center items-center space-y-12
+            2xl:flex-row 2xl:items-start 2xl:space-x-12 2xl:space-y-0">
           <ProjectCard
-            img={giveMeATaskImg}
+            // img={giveMeATaskImg}
             project={giveMeATask}
           />
 
           <ProjectCard
-            img={giveMeATaskImg}
+            // img={worksheetGeneratorImg}
             project={worksheetGenerator}
           />
         </div>
       </section>
 
       {/* Experience */}
-      <section className="px-8 flex flex-col space-y-4 max-w-4xl py-6 w-full text-gray-900">
-        <h2 className="text-2xl font-semibold uppercase">
-          Experience
-        </h2>
+      <section className="px-8 flex flex-col space-y-4 py-16 w-full text-gray-900 bg-white">
+        <div className="max-w-4xl mx-auto w-full">
+          <h2 className="text-2xl font-semibold uppercase">
+            Experience
+          </h2>
 
-        <p className="text-gray-900 text-lg">
-          Before transitioning to software development, I worked as a UX designer and project manager at a large startup, an editor and translator at a publishing company, a music producer at an independent record label, and an educator. My programming experience includes collaborating with peers, managing code repositories, and delivering fully functional applications through various personal projects.
-        </p>
+          <p className="text-gray-900 text-lg">
+            Before transitioning to software development, I worked as a UX designer and project manager at a large startup, an editor and translator at a publishing company, a music producer at an independent record label, and an educator. My programming experience includes collaborating with peers, managing code repositories, and delivering fully functional applications through various personal projects.
+          </p>
+        </div>
       </section>
 
       {/* Contact */}
-      <section className="text-gray-900 px-8 max-w-4xl flex flex-col space-y-4 pb-12 w-full">
-        <h2 className="font-semibold text-2xl uppercase">
-          Contact
-        </h2>
+      <section className="text-gray-900 px-8 flex flex-col space-y-4 pb-16 w-full bg-white">
+        <div className="max-w-4xl mx-auto w-full">
+          <h2 className="font-semibold text-2xl uppercase">
+            Contact
+          </h2>
 
-        <p className="text-lg">
-          Feel free to reach out if you'd like to discuss my work or potential opportunities.
-        </p>
+          <p className="text-lg">
+            Feel free to reach out if you'd like to discuss my work or potential opportunities.
+          </p>
 
-        <p>
-          <span className="text-lg font-semibold">Email: </span>christopherjoon@gmail.com
-        </p>
+          <p>
+            <span className="text-lg font-semibold">Email: </span>christopherjoon@gmail.com
+          </p>
 
-        {/* Socials */}
-        <div className="flex space-x-4 pt-3">
-          <a
-            href="https://www.linkedin.com/in/christopher-lee-77473152/"
-            target="_blank"
-          >
-            <ImLinkedin className="text-[#0a66c2]" size={36} />
-          </a>
-          <a
-            href="https://github.com/chrisjoonlee"
-            target="_blank"
-          >
-            <FaGithub className="text-[#24292e]" size={36} />
-          </a>
+          {/* Socials */}
+          <div className="flex space-x-6 pt-3">
+            <a
+              href="https://www.linkedin.com/in/christopher-lee-77473152/"
+              target="_blank"
+            >
+              <ImLinkedin className="text-[#0a66c2]" size={36} />
+            </a>
+            <a
+              href="https://github.com/chrisjoonlee"
+              target="_blank"
+            >
+              <FaGithub className="text-[#24292e]" size={36} />
+            </a>
+          </div>
         </div>
       </section>
     </main>

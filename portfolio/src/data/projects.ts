@@ -1,5 +1,10 @@
+import { StaticImageData } from 'next/image';
+import giveMeATaskImg from '../media/give_me_a_task.png';
+import worksheetGeneratorImg from '../media/worksheet_generator_1.jpg';
+
 export type Project = {
     title: string;
+    image: StaticImageData;
     technologies: string[];
     description: string;
     features: string[];
@@ -8,6 +13,7 @@ export type Project = {
 
 export const giveMeATask: Project = {
     title: "Give me a task",
+    image: giveMeATaskImg,
     technologies: [
         "JavaScript & React (frontend)",
         "AWS Amplify (backend)",
@@ -33,6 +39,7 @@ export const giveMeATask: Project = {
 
 export const worksheetGenerator: Project = {
     title: "Worksheet generator",
+    image: worksheetGeneratorImg,
     technologies: [
         "C#",
         "LINQ",
