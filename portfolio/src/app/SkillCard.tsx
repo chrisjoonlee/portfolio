@@ -16,7 +16,7 @@ export default function SkillCard({ title, items, bullets = true }: SkillCardPro
             </div>
 
             {/* List */}
-            <div className="px-4 pt-3 pb-4 bg-white rounded-b-xl">
+            <div className="px-4 pt-3 pb-5 bg-white rounded-b-xl">
                 <ul className={`text-gray-600 text-lg flex flex-col space-y-1
                     ${bullets && "list-disc pl-5"}`}>
                     {items.map((item, index) => <li key={index}>{item}</li>)}

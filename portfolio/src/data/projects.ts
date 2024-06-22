@@ -6,23 +6,24 @@ export type Project = {
     title: string;
     image: StaticImageData;
     technologies: string[];
-    description: string;
+    description: string[];
     features: string[];
     gitHubUrl: string;
+    url?: string;
 }
 
 export const giveMeATask: Project = {
     title: "Give me a task",
     image: giveMeATaskImg,
     technologies: [
-        "JavaScript & React (frontend)",
+        "TypeScript & React (frontend)",
         "AWS Amplify (backend)",
         "Cognito (OAuth)",
         "DynamoDB (Database)",
         "GraphQL (querying)",
         "Tailwind (styling)"
     ],
-    description: "This task manager app is similar to Trello but gives users a random task from a task list hidden by default. I built this app to streamline my own task management, and it helps manage the overwhelming feeling of being confronted by long to-do lists all at once.",
+    description: ["This task manager app is similar to Trello but gives users a random task from a task list hidden by default. I built this app to streamline my own task management, and it helps manage the overwhelming feeling of being confronted by long to-do lists all at once.", "To access the website, you can create your own account or log in with the credentials \"user\" and \"password\"."],
     features: [
         "Separate task lists for different users",
         "Task records with titles, descriptions, and due dates",
@@ -34,7 +35,8 @@ export const giveMeATask: Project = {
         "OAuth flow via AWS Amplify",
         "Responsive design for mobile and desktop"
     ],
-    gitHubUrl: "https://github.com/chrisjoonlee/give-me-a-task"
+    gitHubUrl: "https://github.com/chrisjoonlee/give-me-a-task",
+    url: "https://dev.d2de08g4x9pahn.amplifyapp.com/"
 }
 
 export const worksheetGenerator: Project = {
@@ -46,7 +48,7 @@ export const worksheetGenerator: Project = {
         "OOXML & OpenXML SDK",
         "Bash"
     ],
-    description: "This proof-of-concept program converts plain-text Microsoft Word documents into formatted worksheets. It automates the styling process, shuffles choices in multiple-choice questions, and generates answer keys. This tool is designed for teachers who want to simplify the creation of their worksheets.",
+    description: ["This proof-of-concept program converts plain-text Microsoft Word documents into formatted worksheets. It automates the styling process, shuffles choices in multiple-choice questions, and generates answer keys. This tool is designed for teachers who want to simplify the creation of their worksheets."],
     features: [
         "Parsing text and OOXML elements based on keywords",
         "Creating and applying styles",

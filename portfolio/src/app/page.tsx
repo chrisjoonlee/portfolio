@@ -61,7 +61,7 @@ export default function Home() {
             className="rounded-full"
           />
 
-          <div>
+          <div className="text-center sm:text-start">
             <p className="text-gray-200 text-xl leading-8 text-center sm:text-left">
               Hi! I’m Chris, a full-stack software developer from the U.S. with a background in JavaScript, React, Python, C#, and AWS. I speak English, Spanish, Korean, and Portuguese.
             </p>
