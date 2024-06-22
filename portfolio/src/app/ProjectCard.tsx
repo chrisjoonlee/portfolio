@@ -43,27 +43,35 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 {project.title}
             </h3>
 
-            {/* Image */}
-            <div
-                onClick={toggleImageModal}
-                className="relative group bg-black rounded-xl hover:cursor-pointer mb-6"
-            >
+            {/* Main image */}
+            {project.images.length > 0 ?
+                <div
+                    onClick={toggleImageModal}
+                    className="relative group bg-black rounded-xl hover:cursor-pointer mb-6"
+                >
+                    <Image
+                        src={project.mainImage}
+                        alt={`Preview image for ${project.title}`}
+                        className="rounded-xl w-96 h-auto group-hover:opacity-50"
+                    />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
+                        <FaExpand className="text-white text-4xl mb-2" />
+                        <p className="text-white text-lg">See more</p>
+                    </div>
+                </div>
+                :
                 <Image
                     src={project.mainImage}
                     alt={`Preview image for ${project.title}`}
-                    className="rounded-xl w-96 h-auto group-hover:opacity-50"
+                    className="rounded-xl w-96 h-auto group-hover:opacity-50 mb-8"
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
-                    <FaExpand className="text-white text-4xl mb-2" />
-                    <p className="text-white text-lg">See more</p>
-                </div>
-            </div>
+            }
 
-            {/* Expanded image */}
+            {/* Expanded image modal */}
             {isImageExpanded && (
                 <div
                     // onClick={toggleImageModal}
-                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 px-8"
                 >
                     <div
                         onClick={(e) => e.stopPropagation()}

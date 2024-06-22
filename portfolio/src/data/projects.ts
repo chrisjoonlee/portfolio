@@ -1,5 +1,6 @@
 import { StaticImageData } from 'next/image';
 
+// Give me a task
 import giveMeATaskMainImg from '../media/give_me_a_task.png';
 import giveMeATaskImg1 from '../media/giveMeATask/1-daily-tasks.png';
 import giveMeATaskImg2 from '../media/giveMeATask/2-daily-tasks.png';
@@ -14,7 +15,13 @@ import giveMeATaskImg10 from '../media/giveMeATask/10-high-priority.png';
 import giveMeATaskImg11 from '../media/giveMeATask/11-my-tasks.png';
 import giveMeATaskImg12 from '../media/giveMeATask/12-mobile.png';
 
-import worksheetGeneratorImg from '../media/worksheet_generator_1.jpg';
+// Worksheet generator
+import worksheetGeneratorMainImg from '../media/worksheet_generator_1.jpg';
+import worksheetGeneratorImg1 from '../media/worksheetGenerator/Example1.jpg';
+import worksheetGeneratorImg2 from '../media/worksheetGenerator/Example2.jpg';
+import worksheetGeneratorImg3 from '../media/worksheetGenerator/Example3.jpg';
+import worksheetGeneratorImg4 from '../media/worksheetGenerator/AnswerKey.png';
+
 import candyCrushImg from '../media/candy_crush.png';
 
 export type ImageAndDescription = {
@@ -112,8 +119,25 @@ export const giveMeATask: Project = {
 
 export const worksheetGenerator: Project = {
     title: "Worksheet generator",
-    mainImage: worksheetGeneratorImg,
-    images: [],
+    mainImage: worksheetGeneratorMainImg,
+    images: [
+        {
+            image: worksheetGeneratorImg1,
+            description: "Converting a list of words and definitions to a matching activity"
+        },
+        {
+            image: worksheetGeneratorImg2,
+            description: "Formatting images and text"
+        },
+        {
+            image: worksheetGeneratorImg3,
+            description: "Formatting questions and shuffling choices in multiple choice questions"
+        },
+        {
+            image: worksheetGeneratorImg4,
+            description: "Generating an answer key from scratch"
+        }
+    ],
     technologies: [
         "C#",
         "LINQ",
