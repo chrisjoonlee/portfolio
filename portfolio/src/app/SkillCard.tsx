@@ -6,11 +6,11 @@ type SkillCardProps = {
 
 export default function SkillCard({ title, items, bullets = true }: SkillCardProps) {
     return (
-        <div className="rounded-xl w-[300px]">
+        <div className="rounded-xl w-[300px] shadow-slate-300 shadow-lg">
 
             {/* Title */}
-            <div className="bg-gray-600 px-6 py-2 rounded-t-xl h-[72px] flex items-center justify-center">
-                <h3 className="text-gray-100 font-semibold uppercase text-lg max-w-22 text-center">
+            <div className="bg-blue-900 px-6 py-2 rounded-t-xl h-[72px] flex items-center justify-center">
+                <h3 className="text-white font-semibold uppercase text-lg max-w-22 text-center">
                     {title}
                 </h3>
             </div>

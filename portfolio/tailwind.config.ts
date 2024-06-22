@@ -17,6 +17,7 @@ const config: Config = {
       }
     },
     fontFamily: {
+      sans: ['Aptos', 'sans-serif'],
       consolas: ['Consolas', 'monaco', 'monospace']
     }
   },

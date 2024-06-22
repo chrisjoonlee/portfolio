@@ -39,7 +39,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div
             className="flex flex-col text-gray-900 items-center bg-white px-12 pt-8 pb-12 rounded-2xl max-w-3xl">
             {/* Title */}
-            <h3 className="text-xl font-semibold uppercase mb-6">
+            <h3 className="text-2xl font-semibold uppercase mb-6">
                 {project.title}
             </h3>
 

@@ -16,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-700`}>{children}</body>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@400;700&display=swap" rel="stylesheet" />
+      </head>
+      <body className={`${inter.className} font-sans`}>{children}</body>
     </html>
   );
 }

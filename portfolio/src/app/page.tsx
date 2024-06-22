@@ -28,24 +28,39 @@ import proPic from '../media/pro_pic2.jpg';
 
 export default function Home() {
   const projectsRef = useRef<HTMLDivElement>(null);
+  // const animatedTypingText = useRef<HTMLParagraphElement>(null);
 
   const handleScrollToProjects = () => {
     if (projectsRef.current)
       projectsRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // useEffect(() => {
+  //   const paragraph = animatedTypingText.current;
+
+  //   // Trigger reflow to reset the animation
+  //   paragraph?.classList.remove('typewriter');
+  //   // Using setTimeout to ensure the animation is removed before adding it back
+  //   setTimeout(() => {
+  //     paragraph?.classList.add('typewriter');
+  //   }, 0);
+  // }, []);
+
   return (
     <main className="flex flex-col h-screen items-center">
 
-      <section className="bg-gray-700 w-full py-12">
+      <section className="w-full py-12 bg-gradient-to-r from-blue-900 via-purple-900 to-pink-900">
 
         {/* Title */}
-        <section className="mb-6 space-y-2 text-center px-8">
-          <h1 className="text-gray-200 text-4xl font-semibold uppercase leading-30">
+        <section className="mb-6 text-center px-8">
+          <h1 className="text-gray-200 text-4xl font-semibold uppercase leading-30 mb-2">
             Christopher Joon Lee
           </h1>
-          <h2 className="text-gray-200 text-2xl uppercase font-semibold">
-            Software Dev Portfolio
+          <h2
+            // ref={animatedTypingText}
+            className="text-gray-200 text-xl font-consolas"
+          >
+            software dev portfolio
           </h2>
         </section>
 
@@ -65,7 +80,7 @@ export default function Home() {
             </p>
             <button
               onClick={handleScrollToProjects}
-              className="bg-gray-900 px-5 py-2 rounded-full text-gray-200 mt-4 hover:bg-black transition-colors"
+              className="bg-pink-200 px-5 py-2 rounded-full text-pink-900 font-semibold mt-6 hover:bg-pink-300 transition-colors"
             >
               See my projects
             </button>
@@ -75,9 +90,9 @@ export default function Home() {
       </section>
 
       {/* Skills */}
-      <section className="flex flex-col px-8 py-16 bg-gray-300 w-full">
-        <h2 className="text-gray-900 uppercase font-semibold text-3xl text-center mb-8">
-          Skills
+      <section className="flex flex-col px-8 py-16 bg-white w-full">
+        <h2 className="text-gray-900 font-semibold text-3xl text-center mb-8 font-consolas">
+          skills
         </h2>
 
         <div className="grid grid-cols-1 gap-10 rounded-2xl
@@ -97,10 +112,10 @@ export default function Home() {
       {/* Projects */}
       <section
         ref={projectsRef}
-        className="bg-gray-600 px-8 py-16 w-full"
+        className="bg-gradient-to-b from-fuchsia-950 to-indigo-950 px-8 py-16 w-full"
       >
-        <h2 className="text-gray-200 uppercase font-semibold text-3xl text-center mb-8">
-          Projects
+        <h2 className="text-white font-semibold text-3xl text-center mb-8 font-consolas">
+          projects
         </h2>
 
         <div className="flex flex-col justify-center items-center space-y-12">
@@ -163,6 +178,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </main >
   );
 }
