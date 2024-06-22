@@ -22,4 +22,4 @@ export default function RootLayout({
       <body className={`${inter.className} font-sans`}>{children}</body>
     </html>
   );
-}
+};

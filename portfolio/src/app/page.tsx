@@ -28,23 +28,11 @@ import proPic from '../media/pro_pic2.jpg';
 
 export default function Home() {
   const projectsRef = useRef<HTMLDivElement>(null);
-  // const animatedTypingText = useRef<HTMLParagraphElement>(null);
 
   const handleScrollToProjects = () => {
     if (projectsRef.current)
       projectsRef.current.scrollIntoView({ behavior: 'smooth' });
   };
-
-  // useEffect(() => {
-  //   const paragraph = animatedTypingText.current;
-
-  //   // Trigger reflow to reset the animation
-  //   paragraph?.classList.remove('typewriter');
-  //   // Using setTimeout to ensure the animation is removed before adding it back
-  //   setTimeout(() => {
-  //     paragraph?.classList.add('typewriter');
-  //   }, 0);
-  // }, []);
 
   return (
     <main className="flex flex-col h-screen items-center">
@@ -154,7 +142,7 @@ export default function Home() {
           </h2>
 
           <p className="text-lg">
-            Feel free to reach out if you'd like to discuss my work or potential opportunities.
+            Feel free to reach out if you&apos;d like to discuss my work or potential opportunities.
           </p>
 
           <p>
