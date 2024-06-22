@@ -16,9 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
+      <title>
+        Christopher Joon Lee - Software Dev Portfolio
+      </title>
       <body className={`${inter.className} font-sans`}>{children}</body>
     </html>
   );
