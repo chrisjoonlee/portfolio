@@ -15,7 +15,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     }
 
     return (
-        <div className="flex flex-col space-y-6 text-gray-900 items-center bg-white px-12 pt-8 pb-12 rounded-2xl max-w-2xl">
+        <div className="flex flex-col space-y-6 text-gray-900 items-center bg-white px-12 pt-8 pb-12 rounded-2xl max-w-3xl">
             {/* Title */}
             <h3 className="text-xl font-semibold uppercase">
                 {project.title}
@@ -53,11 +53,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
 
             {/* Description */}
-            {project.description.map((paragraph, i) => (
-                <p key={i} className="text-lg">
-                    {paragraph}
-                </p>
-            ))}
+            <div className="flex flex-col space-y-4">
+                {project.description.map((paragraph, i) => (
+                    <p key={i} className="text-lg">
+                        {paragraph}
+                    </p>
+                ))}
+            </div>
 
             {/* Technologies */}
             <div className="flex flex-col space-y-1 w-full">

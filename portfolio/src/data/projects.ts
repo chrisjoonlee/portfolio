@@ -1,6 +1,7 @@
 import { StaticImageData } from 'next/image';
 import giveMeATaskImg from '../media/give_me_a_task.png';
 import worksheetGeneratorImg from '../media/worksheet_generator_1.jpg';
+import candyCrushImg from '../media/candy_crush.png';
 
 export type Project = {
     title: string;
@@ -55,7 +56,26 @@ export const worksheetGenerator: Project = {
         "Shuffling choices in multiple-choice questions",
         "Creating answer keys",
         "Formatting images and mapping image IDs between documents",
-        "Generating new Word documents using OpenXML SDK"
+        "Generating new Word documents using OpenXML SDK",
+        "Bash scripts that zip and unzip Word docs"
     ],
     gitHubUrl: "https://github.com/chrisjoonlee/worksheet-generator"
+}
+
+export const candyCrush: Project = {
+    title: "Candy Crush",
+    image: candyCrushImg,
+    technologies: [
+        "JavaScript",
+        "Mocha & Chai"
+    ],
+    description: ["This is a version of Candy Crush that you can play in the command terminal. It follows an activity from  App Academy Open's coding bootcamp curriculum, although I added extra functionality to make it more similar to the real Candy Crush game. The activity is designed to help students master object-oriented programming in JavaScript and test-driven development with Mocha and Chai.", "Go to the GitHub repo to see instructions on how to play."],
+    features: [
+        "A basic game UI displayed in the command terminal",
+        "Detection of vertical, horizontal, and combo matches",
+        "A score counter",
+        "Animated gameplay",
+        "Object-oriented programming and test-driven development"
+    ],
+    gitHubUrl: "https://github.com/chrisjoonlee/candy-crush/tree/main"
 }

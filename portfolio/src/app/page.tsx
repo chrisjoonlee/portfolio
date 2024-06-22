@@ -7,7 +7,6 @@ import ProjectCard from './ProjectCard';
 import { ImLinkedin } from "react-icons/im";
 import { FaGithub } from "react-icons/fa";
 
-
 import {
   programmingLanguages,
   frontEnd,
@@ -21,12 +20,11 @@ import {
 
 import {
   giveMeATask,
-  worksheetGenerator
+  worksheetGenerator,
+  candyCrush
 } from '../data/projects';
 
 import proPic from '../media/pro_pic2.jpg';
-import giveMeATaskImg from '../media/give_me_a_task.png';
-import worksheetGeneratorImg from '../media/worksheet_generator_1.jpg';
 
 export default function Home() {
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -67,7 +65,7 @@ export default function Home() {
             </p>
             <button
               onClick={handleScrollToProjects}
-              className="bg-gray-900 px-4 py-2 rounded-full text-gray-200 mt-4 hover:bg-black transition-colors"
+              className="bg-gray-900 px-5 py-2 rounded-full text-gray-200 mt-4 hover:bg-black transition-colors"
             >
               See my projects
             </button>
@@ -105,16 +103,17 @@ export default function Home() {
           Projects
         </h2>
 
-        <div className="flex flex-col justify-center items-center space-y-12
-            2xl:flex-row 2xl:items-start 2xl:space-x-12 2xl:space-y-0">
+        <div className="flex flex-col justify-center items-center space-y-12">
           <ProjectCard
-            // img={giveMeATaskImg}
             project={giveMeATask}
           />
 
           <ProjectCard
-            // img={worksheetGeneratorImg}
             project={worksheetGenerator}
+          />
+
+          <ProjectCard
+            project={candyCrush}
           />
         </div>
       </section>
